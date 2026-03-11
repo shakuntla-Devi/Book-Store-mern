@@ -1,5 +1,5 @@
 import express from "express";
-import { PORT } from "./Config.js";
+
 import { ConnectDB } from "./Database/ConnectDB.js";
 import booksRoute from './routes/booksRoute.js';
 import cors from "cors";
@@ -30,6 +30,7 @@ app.use(cors())
 // app.listen(PORT, () => {
 //     console.log("Welcome to mern Stack Tutorial")
 // })
+const PORT = process.env.PORT || 5555;
 app.listen(PORT, () => {
       console.log(`Server running on port ${PORT}`);
     });
