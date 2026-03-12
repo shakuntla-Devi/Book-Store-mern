@@ -50,7 +50,8 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: ["https://book-store-mern-livid-nine.vercel.app"], // frontend Vercel URL
+  // origin: ["https://book-store-mern-livid-nine.vercel.app"], // frontend Vercel URL
+ origin:["https://book-store-mern-17dy.vercel.app"],
   methods: ["GET","POST","PUT","DELETE"],
 }));
 app.use(express.json());
