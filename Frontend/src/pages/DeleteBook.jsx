@@ -6,6 +6,9 @@ import BackButton from "../components/BackButton";
 import Spinner from "../components/Spinner";
 import { useSnackbar } from "notistack";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
+
 const DeleteBook = () => {
 
   const [loading, setLoading] = useState(false)

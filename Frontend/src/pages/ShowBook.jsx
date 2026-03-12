@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import BackButton from "../components/BackButton";
 import Spinner from "../components/Spinner";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const ShowBook = () => {
 
