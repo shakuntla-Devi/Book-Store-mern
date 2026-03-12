@@ -6,6 +6,9 @@ import BackButton from "../components/BackButton";
 import Spinner from "../components/Spinner";
 import { useSnackbar } from "notistack";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
+
 const EditBook = () => {
 
   const [title, setTitle] = useState('');
@@ -22,7 +25,7 @@ const EditBook = () => {
     setLoading(true);
 
     axios
-      .get(`http://localhost:5555/books/${id}`)
+      .get(`${API_URL}/books/${id}`)
       .then((res) => {
         setAuthor(res.data.author);
         setPublishYear(res.data.publishYear);
@@ -48,7 +51,7 @@ const EditBook = () => {
     setLoading(true);
 
     axios
-      .put(`http://localhost:5555/books/${id}`, data)
+      .put(`${import.meta.env.VITE_API_URL}/books/${id}`, data)
       .then(() => {
         setLoading(false);
         enqueueSnackbar('Book Edited Successfully', { variant: 'success' })

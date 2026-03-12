@@ -20,7 +20,7 @@ const DeleteBook = () => {
     setLoading(true);
 
     axios
-      .delete(`http://localhost:5555/books/${id}`)
+      .delete(`${API_URL}/books/${id}`)
       .then(() => {
 
         setLoading(false);

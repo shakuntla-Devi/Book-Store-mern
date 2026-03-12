@@ -1,40 +1,76 @@
-import express from "express";
+// import express from "express";
+// import cors from "cors";
+// import dotenv from "dotenv";
 
-import { ConnectDB } from "./Database/ConnectDB.js";
-import booksRoute from './routes/booksRoute.js';
+// import { ConnectDB } from "./Database/ConnectDB.js";
+// import booksRoute from "./routes/booksRoute.js";
+
+// dotenv.config(); // load .env variables
+
+// const app = express();
+
+// // Middleware
+// app.use(cors({
+//   origin: ["https://book-store-mern-livid-nine.vercel.app"], // frontend Vercel URL
+//   methods: ["GET","POST","PUT","DELETE"],
+// }));
+// app.use(express.json());
+
+// // Routes
+// app.get("/", (req, res) => {
+//   res.status(200).send("Welcome to MERN Stack Tutorial");
+// });
+
+// app.use("/books", booksRoute);
+
+// // Start server after DB connection
+// const PORT = process.env.PORT || 5555;
+
+// ConnectDB()
+//   .then(() => {
+//     app.listen(PORT, () => {
+//       console.log(`Server running on port ${PORT}`);
+//     });
+//   })
+//   .catch((err) => {
+//     console.error("Database connection failed:", err);
+//   });
+
+
+import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 
+import { ConnectDB } from "./Database/ConnectDB.js";
+import booksRoute from "./routes/booksRoute.js";
 
-dotenv.config();
-const app = express()
+dotenv.config(); // load .env variables
 
-app.use(cors())
-// app.use(cors({
-// origin:'http://localhost:5173',
-// methods:['GET','POST','PUT','DELETE'],
-// allowedHeaders:['Content-Type'],
+const app = express();
 
+// Middleware
+app.use(cors({
+  origin: ["https://book-store-mern-livid-nine.vercel.app"], // frontend Vercel URL
+  methods: ["GET","POST","PUT","DELETE"],
+}));
+app.use(express.json());
 
-// }))
- app.use(express.json());
+// Routes
+app.get("/", (req, res) => {
+  res.status(200).send("Welcome to MERN Stack Tutorial");
+});
 
+app.use("/books", booksRoute);
 
- app.get('/', (req, res) => {
-     console.log(req)
-     return res.status(200).send("Welcome to mern Stack Tutorial")
-     
-    })
-    app.use('/books', booksRoute)
-
-// app.listen(PORT, () => {
-//     console.log("Welcome to mern Stack Tutorial")
-// })
+// Start server after DB connection
 const PORT = process.env.PORT || 5555;
-app.listen(PORT, () => {
+
+ConnectDB()
+  .then(() => {
+    app.listen(PORT, () => {
       console.log(`Server running on port ${PORT}`);
     });
-ConnectDB();
-// sd2511825_db_user
-// T5LwgjPl5r3dZJjn
-// mongodb+srv://sd2511825_db_user:T5LwgjPl5r3dZJjn@cluster0.6jrk1gd.mongodb.net/?appName=Cluster0
+  })
+  .catch((err) => {
+    console.error("Database connection failed:", err);
+  });

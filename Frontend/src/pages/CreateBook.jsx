@@ -6,6 +6,9 @@ import BackButton from "../components/BackButton";
 import Spinner from "../components/Spinner";
 import { useSnackbar } from "notistack";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
+
 const CreateBook = () => {
 
   const [title, setTitle] = useState('');
@@ -24,7 +27,7 @@ const CreateBook = () => {
     };
     setLoading(true);
     axios
-      .post('http://localhost:5555/books', data)
+      .post(`${API_URL}/books`, data)
       .then(() => {
         setLoading(false);
         enqueueSnackbar('Book Created Successfully', { variant: 'success' })
