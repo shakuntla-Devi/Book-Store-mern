@@ -8,6 +8,8 @@ import { useSnackbar } from "notistack";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
+console.log("API URL:", API_URL);
+
 
 const CreateBook = () => {
 
@@ -32,6 +34,7 @@ const CreateBook = () => {
         setLoading(false);
         enqueueSnackbar('Book Created Successfully', { variant: 'success' })
         navigate('/')
+
       })
       .catch((error) => {
         setLoading(false);

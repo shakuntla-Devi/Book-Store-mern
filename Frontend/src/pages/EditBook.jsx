@@ -90,7 +90,7 @@ const EditBook = () => {
           />
         </div>
 
-        <div className="mb-5">
+        <div className="mb-5"> 
           <label className="block text-lg font-semibold text-gray-700 mb-2">
             Author
           </label>
